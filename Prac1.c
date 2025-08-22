@@ -1,18 +1,19 @@
 /******************************************************************************
-Examples code
-*******************************************************************************/
+Código de ejemplos
+******************************************************************************/
 
 #include <stdio.h>
 #include <inttypes.h>
 /*
-  Ejercicios de enmascaramientos. 
-  Lo que se busca es que imprima el valor que esta comentado,
-  alterando unicamente el valor anterior utilizando los operadores bitwise.
-  Todas las conversiones deberian ser posibles con una sola operacion
+    Ejercicios de enmascaramientos.
+    Se busca que imprima el valor que está comentado,
+    alterando únicamente el valor anterior utilizando los operadores bitwise.
+    Todas las conversiones deberían ser posibles con una sola operación.
 */
 int main()
 {
     uint16_t a = 0;
+    uint32_t b = 0x1155;
     printf("\na = %X", a);
 //  Como ejemplo se da el analisis de la primera operacion
 
@@ -37,6 +38,20 @@ int main()
 //6 0155
 //7 0001
 //8 0100
+    /************************************
+     * Ejercicios de apuntadores
+     ************************************/
+    b = ((~b) << 16) | b;
+    uint16_t *ptr16 = &b;
+    uint8_t *ptr8 = &b;
+//9 DEADBEEF
+
+    /************************************
+     * Ejercicios de structs con campos de bits
+     ************************************/
+    // Crear una esturctura de 32 bits y mappearla sobre la variable 'b'
+//10 BADDCODE
+    
 
     return 0;
 }
